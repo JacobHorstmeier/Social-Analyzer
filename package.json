@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "connect": "^3.6.6",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "massive": "^5.0.0",
@@ -11,7 +13,12 @@
     "passport-auth0": "^0.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-promise-middleware": "^5.1.1",
+    "session": "^0.1.0",
     "watson-developer-cloud": "^3.4.5"
   },
   "scripts": {
@@ -20,6 +27,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3007",
+  "proxy": "http://localhost:3007/",
   "main": "./server/index.js"
 }
