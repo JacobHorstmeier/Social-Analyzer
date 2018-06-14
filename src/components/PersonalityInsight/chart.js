@@ -13,7 +13,7 @@ class Chart extends Component {
                     "Extraversion",
                     "Agreeableness",
                     "Neuroticism",
-                    
+
                 ],
                 datasets: [{
                     label: "Big 5 OCEAN Traits",
@@ -25,7 +25,7 @@ class Chart extends Component {
                         "rgba(255, 205, 86, 0.2)",
                         "rgba(75, 192, 192, 0.2)",
                         "rgba(54, 162, 235, 0.2)",
-                        
+
                     ],
                     borderColor: [
                         "rgb(255, 99, 132)",
@@ -33,21 +33,26 @@ class Chart extends Component {
                         "rgb(255, 205, 86)",
                         "rgb(75, 192, 192)",
                         "rgb(54, 162, 235)",
-                        
+
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
+                labels: {
+                    defaultFontSize: 5
+                },
                 scales: {
+                   
                     yAxes: [{
+                        
                         ticks: {
                             beginAtZero: true
                         }
                     }]
                 }
-            
-        
+
+
             }
         }
     }
@@ -59,8 +64,14 @@ class Chart extends Component {
             <div className="chart">
                 <Bar
                     data={this.state.chartData}
+                    width={380}
+                    height={400}
                     options={{
-                        maintainAspectRatio: false
+                        tooltips: {
+                            
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
                     }}
                 />
             </div>
