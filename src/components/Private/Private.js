@@ -30,6 +30,7 @@ class Private extends Component {
             Logout
           </button>
         </a>
+          
       </div>
     );
   }

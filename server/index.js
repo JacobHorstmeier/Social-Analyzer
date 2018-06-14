@@ -3,7 +3,11 @@ const express = require('express')
     , session = require('express-session')
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
-    , massive = require('massive');
+    , bodyParser = require('body-parser')
+    , massive = require('massive')
+    , ctrl = require('./controller')
+var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+// var fs = require('fs');
 
 const {
     SERVER_PORT,
@@ -23,6 +27,8 @@ const app = express();
 massive(CONNECTION_STRING).then( db => {
     app.set('db', db)
 })
+
+app.use(bodyParser.json())
 
 app.use( session({
     secret: SESSION_SECRET,
@@ -76,6 +82,42 @@ app.get('/auth/user', (req, res) => {
         res.status(401).send('Niced Try ')
     }
 })
+
+// profile get request
+app.post('/api/getProfile', ctrl.profileGetter)
+
+// var personalityInsights = new PersonalityInsightsV3({
+//     version: '2017-10-13',
+//     username: '132c9727-eaf0-4439-ba20-f810c05b34ce',
+//     password: 'caidJMGcPZ4j',
+//   //   url: 'https://gateway.watsonplatform.net/personality-insights/api'
+    
+//   });
+  
+//   var profileParams = {
+//       content: require('../src/sampleDataJson/SampleData.json'),
+//       content_type:'application/json',
+//       raw_scores: true,
+//       csv_headers: true,
+//       consumption_preferences: true
+//   };
+  
+//   personalityInsights.profileAsCsv(profileParams, function(error, profile) {
+//       if (error) {
+//           console.log(error);
+//       } else {
+//           console.log(profile)
+
+//           var wstream = fs.createWriteStream('output.csv');
+//           wstream.write(profile);
+//           wstream.end();
+//       }
+//   })
+
+
+
+
+
 
 app.listen(SERVER_PORT, () => {
     console.log(`Making Minutes Feel Like Full Days On: `, SERVER_PORT)

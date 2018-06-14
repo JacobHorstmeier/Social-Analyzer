@@ -10,23 +10,37 @@ const {
 
 var personalityInsights = new PersonalityInsightsV3({
   version: '2017-10-13',
-  username: 'USERNAME',
-  password: 'PASSWORD',
-  url: 'https://gateway.watsonplatform.net/personality-insights/api'
+  username: '132c9727-eaf0-4439-ba20-f810c05b34ce',
+  password: 'caidJMGcPZ4j',
+//   url: 'https://gateway.watsonplatform.net/personality-insights/api'
   
 });
 
 var profileParams = {
-    content: require('.'),
-    content_type:'text/plain',
+    content: require('./sampleDataJson/SampleData.json'),
+    content_type:'application/json',
+    raw_scores: true,
+    csv_headers: true,
     consumption_preferences: true
 };
 
-var albums = [
-    'aHeadFullOfDreams'
-]
+personalityInsights.profileAsCsv(profileParams, function(error, profile) {
+    if (error) {
+        console.log(error);
+    } else {
+        var wstream = fs.createWriteStream('output.csv');
+        wstream.write(profile);
+        wstream.end();
+    }
+})
+
+
+
+// var albums = [
+//     'aHeadFullOfDreams'
+// ]
     
-var results = [];
+// var results = [];
 
 
 
