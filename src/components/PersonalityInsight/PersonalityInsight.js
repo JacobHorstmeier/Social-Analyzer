@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
+import {connect} from 'react-redux';
 
 
 
-export default class PersonalityInsight extends Component {
+class PersonalityInsight extends Component {
     constructor(props) {
         super(props)
 
@@ -41,9 +42,10 @@ export default class PersonalityInsight extends Component {
                 neuroticism: Math.round(res.data.personality[4].percentile * 100),
             }
 
-            this.setState({ profile: obj })
+           
+            this.setState({showBarGraph:true, profile: obj})
         })
-        this.setState({showBarGraph:true})
+        
     }
 
     render() {
@@ -110,4 +112,13 @@ export default class PersonalityInsight extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        profile: state.profile,
+        user: state.user
 
+        // capsText: state.capsText,
+        // reverseText: state.reverseText
+    }
+}
+export default connect(mapStateToProps)(PersonalityInsight)

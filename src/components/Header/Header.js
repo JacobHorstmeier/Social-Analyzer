@@ -46,7 +46,7 @@ export default class Header extends Component {
   </div>
   
  
-  <span style={{fontSize: 30, cursor: 'pointer'}} onClick={() => this.openNav()}> ☰</span>
+  <span style={{fontSize: 30, cursor: 'pointer'}} onClick={() => this.openNav()}>☰</span>
 </div>
 
 
