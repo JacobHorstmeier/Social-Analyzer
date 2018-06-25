@@ -7,7 +7,7 @@ class Private extends Component {
     this.props.getUser();
   }
 
- 
+
 
   render() {
     let { user_name, picture, auth_id } = this.props.user;
@@ -20,17 +20,17 @@ class Private extends Component {
             <img src={picture} alt="" />
             <p>Account Name: {user_name}</p>
             <p>Account Number: {auth_id}</p>
-           
+
           </div>
         ) : (
-          <p>Please login</p>
-        )}
+            <p>Please login</p>
+          )}
         <a href="http://localhost:3007/auth/logout">
           <button type="" className="">
             Logout
           </button>
         </a>
-          
+
       </div>
     );
   }

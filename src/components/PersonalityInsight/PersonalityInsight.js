@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Chart from './chart';
+import { Bar } from 'react-chartjs-2';
 
 
 
@@ -9,65 +9,104 @@ export default class PersonalityInsight extends Component {
         super(props)
 
         this.state = {
-            nameInput: 'Coldplay',
+            nameInput: '',
             profile: {},
-            
-            
-           
+            showBarGraph: false
+
+
+
         }
         this.getProfile = this.getProfile.bind(this)
     }
 
-    componentDidMount(){
-       
+
+
+
+
+    componentDidMount() {
+
     }
 
     getProfile() {
-       
+        if(this.state.nameInput === ''){
+            alert('Please fill out the required field')
+        } else
 
-        axios.post('/api/getProfile', { name: this.state.nameInput }).then(res => { 
+        axios.post('/api/getProfile', { name: this.state.nameInput }).then(res => {
             let obj = {
-                openness: Math.round(res.data.personality[0].percentile*100),
-                conscientousness: Math.round(res.data.personality[1].percentile*100),
-                extraversion: Math.round(res.data.personality[2].percentile*100),
-                agreeableness: Math.round(res.data.personality[3].percentile*100),
-                neuroticism: Math.round(res.data.personality[4].percentile*100),
+                openness: Math.round(res.data.personality[0].percentile * 100),
+                conscientousness: Math.round(res.data.personality[1].percentile * 100),
+                extraversion: Math.round(res.data.personality[2].percentile * 100),
+                agreeableness: Math.round(res.data.personality[3].percentile * 100),
+                neuroticism: Math.round(res.data.personality[4].percentile * 100),
             }
-            
-            this.setState({profile: obj})
-            })
+
+            this.setState({ profile: obj })
+        })
+        this.setState({showBarGraph:true})
     }
 
     render() {
         console.log(this.state.profile)
-        return (
+
+            if(this.state.showBarGraph === false){
+
+                return (
+                    <div>
+                <button onClick={() => { this.getProfile() }}>Get Profile</button>
+                <br />
+               
+                <input onChange={(e) => this.setState({
+                    nameInput: e.target.value
+                })} />
+                </div>
+            )} else 
+            return (
             <div>
-                <button onClick={() => {this.getProfile()}}>Get Profile</button>
+               
+                <input onChange={(e) => this.setState({
+                    nameInput: e.target.value
+                })} />
                 <br />
-                {this.state.profile.openness}
-                <br />
-                {this.state.profile.conscientousness}
-                <br />
-                {this.state.profile.extraversion}
-                <br />
-                {this.state.profile.agreeableness}
-                <br />
-                {this.state.profile.neuroticism}
-                <br />
-               <input onChange={ (e) => this.setState({
-                   nameInput: e.target.value
-               }) }/>
-                <Chart />
+                <button onClick={() => { this.getProfile() }}>Get Profile</button>
+                <Bar
+                    data={{labels: ["Openess","Conscientiousness","Extraversion","Agreeableness","Neuroticism",],
+                        datasets: [{
+                                label: ["Big 5 OCEAN Traits"],
+                                backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)",],
+                                    borderColor: [ "rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)","rgb(75, 192, 192)", "rgb(54, 162, 235)",],
+                                        borderWidth: 1,
+                                        data: [this.state.profile.openness, this.state.profile.conscientousness, this.state.profile.extraversion, this.state.profile.agreeableness, this.state.profile.neuroticism]
+                                    }
+                                ]
+                            }}
+                            width={380} 
+                            height={400}
+                            options={{
+                                scales: {
+                                    yAxes: [{
+                                        display: true,
+                                        ticks: {
+                                            beginAtZero:true,
+                                            max: 100
+                                        }
+                                    }]
+                                },
+                                maintainAspectRatio: true  
+                            }}
+                            />
 
-                
 
 
 
 
 
 
+
+    
             </div>
         )
     }
 }
+
 
