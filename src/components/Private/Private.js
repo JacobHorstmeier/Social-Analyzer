@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getUser } from "./../../ducks/user";
 import { connect } from "react-redux";
 import Header from '../Header/Header';
+import './Private.css';
 
 class Private extends Component {
   componentDidMount() {
@@ -15,6 +16,7 @@ class Private extends Component {
     return (
       <div>
       <Header />
+      <div className='Private'>
         <h2>Account Information:</h2>
         <hr />
         {user_name ? (
@@ -32,7 +34,7 @@ class Private extends Component {
             Logout
           </button>
         </a>
-
+          </div>
       </div>
     );
   }

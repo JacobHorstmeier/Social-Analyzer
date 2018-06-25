@@ -69,6 +69,7 @@ export default class PersonalityInsight extends Component {
                 })} />
                 <br />
                 <button onClick={() => { this.getProfile() }}>Get Profile</button>
+                <br/>
                 <Bar
                     data={{labels: ["Openess","Conscientiousness","Extraversion","Agreeableness","Neuroticism",],
                         datasets: [{

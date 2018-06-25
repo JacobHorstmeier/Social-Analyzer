@@ -1,14 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from '../Header/Header';
+import './Insights.css';
 
 
 export default class Insights extends Component {
-    render(){
+    render() {
         return (
             <div>
                 <Header />
-                Insights page
-            </div> 
+                <div className='Insights'>
+                    Insights page
+                </div>
+            </div>
         )
     }
 }
