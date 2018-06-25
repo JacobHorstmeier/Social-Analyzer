@@ -31,14 +31,14 @@ export default class Header extends Component {
 
     render (){
         return (
-        <div >
+        <div className='header'>
           
           
           <div>
   <div id="mySidenav" className="sidenav" style={{width:this.state.width}}>
     <a href="javascript:void(0)" className="closebtn" onClick={() => this.closeNav()}>×</a>
     <a href="#/insights">Insights</a>
-    <a href="#/profile">Profile</a>
+    <a href="#/private">Profile</a>
     <a href="#/about">About</a>
     <a href="#/contact">Contact</a>
   </div>

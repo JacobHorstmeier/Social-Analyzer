@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getUser } from "./../../ducks/user";
 import { connect } from "react-redux";
+import Header from '../Header/Header';
 
 class Private extends Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class Private extends Component {
     let { user_name, picture, auth_id } = this.props.user;
     return (
       <div>
+      <Header />
         <h2>Account Information:</h2>
         <hr />
         {user_name ? (
