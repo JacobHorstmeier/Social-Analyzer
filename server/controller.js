@@ -51,9 +51,15 @@ module.exports = {
 
     savedProfileGetter: (req, res, next) => {
         const db = req.app.get('db');
+        
+        console.log('savedprofilegetter hit')
 
-        db.getAllSavedProfiles()
-            .then(profile => res.status(200).send(profile))
+        db.getAllSavedProfiles(req.user.id)
+            .then(result => {
+                console.log(result)
+                
+                res.status(200).send(result)
+            })
             .catch((e) => {
                 console.log(e)
                 res.status(500).send()
@@ -66,7 +72,7 @@ module.exports = {
         const { openness, conscientiousness, extraversion, agreeableness, neuroticism } = req.body.profile;
         const {name} = req.body
         
-        db.saveProfile([req.user.id,name, openness, conscientiousness, extraversion, agreeableness, neuroticism])
+        db.save_Profile([req.user.id,name, openness, conscientiousness, extraversion, agreeableness, neuroticism])
             .then(() => res.status(200).send())
             .catch((e) =>{
                 console.log(e)
@@ -75,8 +81,17 @@ module.exports = {
     }
 
     // deleteProfile: (req, res, next) => {
-    //     const db = req
-    // }
+    //     const db = req.app.get('db');
+    //     const{id} = req.params 
+    //     console.log('delete just hit')
+
+    //     db.delete_profile([id])
+    //         .then(profile => res.status(200).send(profile))
+    //         .catch((e) => {
+    //             console.log(e)
+    //             res.status(500).send()
+    //         })
+    //  }
 
 
 }
