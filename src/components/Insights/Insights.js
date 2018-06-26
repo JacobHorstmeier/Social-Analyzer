@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import './Insights.css';
+import axios from 'axios';
 
 
 export default class Insights extends Component {
@@ -12,7 +13,9 @@ export default class Insights extends Component {
     }
 
 componentDidMount(){
-    
+    axios.get('/api/getSavedProfiles').then(res => {
+        
+    })
 }
 
     render() {

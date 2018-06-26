@@ -86,6 +86,10 @@ app.get('/auth/user', (req, res) => {
 // profile get request
 app.post('/api/getProfile', ctrl.profileGetter)
 
+// User Related Data
+app.get('/api/getSavedProfiles', ctrl.savedProfileGetter)
+app.post('/api/saveProfile', ctrl.saveProfile)
+
 
 
 
