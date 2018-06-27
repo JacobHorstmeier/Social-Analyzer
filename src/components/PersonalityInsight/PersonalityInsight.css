@@ -1,0 +1,19 @@
+html {
+    background-color: rgb(253, 243, 221);
+}
+
+button {
+    background-color: rgb(251, 226, 230);
+    border-color: rgb(239, 106, 129)
+}
+
+/* input {
+    background-color: rgb(217, 235, 253);
+    border: 1px solid  rgb(77, 161, 248)
+} */
+
+/* <canvas height="1052" width="1000" class="chartjs-render-monitor" style="display: block;height: 401px;width: 381px;background:  white; border: 1px solid rgb(239, 106, 129);"></canvas> */
+
+/* .Profile {
+    background: white;
+} */

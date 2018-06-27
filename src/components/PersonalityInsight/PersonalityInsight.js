@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux';
-
+import './PersonalityInsight.css';
 
 
 class PersonalityInsight extends Component {
@@ -60,7 +60,7 @@ class PersonalityInsight extends Component {
         if (this.state.showBarGraph === false) {
 
             return (
-                <div>
+                <div className=''>
                     <button onClick={() => { this.getProfile() }}>Get Profile</button>
                     <br />
 
@@ -71,15 +71,17 @@ class PersonalityInsight extends Component {
             )
         } else
             return (
+                
                 <div>
 
+                    <button onClick={() => { this.getProfile() }}>Get Profile</button>
+                    <br />
                     <input onChange={(e) => this.setState({
                         nameInput: e.target.value
                     })} />
                     <br />
-                    <button onClick={() => { this.getProfile() }}>Get Profile</button>
-                    <br />
-                    <Bar
+                    
+                    <Bar 
                         data={{
                             labels: ["Openess", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism",],
                             datasets: [{
@@ -116,6 +118,7 @@ class PersonalityInsight extends Component {
 
 
                 </div>
+                
             )
     }
 }

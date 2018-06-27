@@ -4,7 +4,8 @@
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: rgba(255, 159, 64, 0.2)
+    background-color: rgb(251, 226, 230);
+    border-bottom: 1px solid rgb(239, 106, 129)
 }
 
  
@@ -26,7 +27,8 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: rgb(54, 162, 235);
+    /* color: #818181; */
     display: block;
     transition: 0.3s;
 }

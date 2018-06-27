@@ -93,5 +93,9 @@ module.exports = {
             })
      }
 
+    //  editUser: (req, res, next) => {
+    //      const db = req.app.get('db');
+    //  }
+
 
 }

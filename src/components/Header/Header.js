@@ -38,7 +38,7 @@ export default class Header extends Component {
           <div>
   <div id="mySidenav" className="sidenav" style={{width:this.state.width}}>
     <a href="javascript:void(0)" className="closebtn" onClick={() => this.closeNav()}>×</a>
-    <a href="#/home">Home</a>
+    <a href="#/home" >Home</a>
     <a href="#/insights">Insights</a>
     <a href="#/private">Profile</a>
     <a href="#/about">About</a>
