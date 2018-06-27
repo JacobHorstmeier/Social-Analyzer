@@ -20,3 +20,4 @@ INSERT INTO saved_profiles (user_id, artist, openness, conscientiousness, extrav
 VALUES ($1,$2,$3,$4,$5,$6,$7)
 
 -- Delete request
+DELETE FROM saved_profiles WHERE id = $1

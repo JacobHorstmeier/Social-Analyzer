@@ -89,6 +89,7 @@ app.post('/api/getProfile', ctrl.profileGetter)
 // User Related Data
 app.get('/api/getSavedProfiles', ctrl.savedProfileGetter)
 app.post('/api/saveProfile', ctrl.saveProfile)
+app.delete('/api/deleteProfile/:id', ctrl.deleteProfile)
 
 
 

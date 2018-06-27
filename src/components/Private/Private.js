@@ -22,6 +22,7 @@ class Private extends Component {
         {user_name ? (
           <div>
             <img src={picture} alt="" />
+            {/* <textarea rows='4' cols='50'></textarea> */}
             <p>Account Name: {user_name}</p>
             <p>Account Number: {auth_id}</p>
 

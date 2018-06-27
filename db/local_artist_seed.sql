@@ -4,4 +4,5 @@ CREATE TABLE localartist (
     watsondata TEXT
 )
 
-
+select watsondata from localartist
+where artistname = $1

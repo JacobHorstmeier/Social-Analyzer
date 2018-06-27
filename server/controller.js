@@ -78,20 +78,20 @@ module.exports = {
                 console.log(e)
                 res.status(500).send()
             })
-    }
+    },
 
-    // deleteProfile: (req, res, next) => {
-    //     const db = req.app.get('db');
-    //     const{id} = req.params 
-    //     console.log('delete just hit')
+    deleteProfile: (req, res, next) => {
+        const db = req.app.get('db');
+        const{id} = req.params 
+        console.log('delete just hit')
 
-    //     db.delete_profile([id])
-    //         .then(profile => res.status(200).send(profile))
-    //         .catch((e) => {
-    //             console.log(e)
-    //             res.status(500).send()
-    //         })
-    //  }
+        db.delete_profile([id])
+            .then( (profiles) => res.status(200).send(profiles))
+            .catch((e) => {
+                console.log(e)
+                res.status(500).send()
+            })
+     }
 
 
 }

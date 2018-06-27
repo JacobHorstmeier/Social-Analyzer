@@ -13,9 +13,11 @@ export default class Insights extends Component {
         this.state = {
             profiles: [],
             showCharts: false,
-            currentProfile: 0
+            currentProfile: 0,
+            activeID: 0
         }
         this.backButton = this.backButton.bind(this)
+        this.deleteProfile = this.deleteProfile.bind(this)
     }
 
     componentDidMount() {
@@ -24,30 +26,34 @@ export default class Insights extends Component {
         })
     }
 
-    handleClick(i) {
-        this.setState({showCharts:!this.state.showCharts,currentProfile: i})
-    }
+    handleClick(i) { this.setState({ showCharts: !this.state.showCharts, currentProfile: i, activeID: this.state.profiles[i].id }) }
 
-    backButton(){
-        
-        this.setState({showCharts:false})
+    backButton() { this.setState({ showCharts: false }) }
+
+    deleteProfile(){
+       
+       
+        axios.delete(`/api/deleteProfile/${this.state.activeID}`).then((res) => {
+            this.setState({
+                showCharts:false,
+                profiles:res.data
+            })
+        }
+    )
     }
 
     render() {
-        // console.log(this.state.currentProfile)
-        // console.log(this.state.profiles)
+        // console.log(this.state)
         if (this.state.showCharts === false) {
-            
             let mappedProfiles = this.state.profiles.map(
                 (e, i) => {
                     return (
                         <div key={i} className='container'>
-                            <button className='button-one'onClick={() => this.handleClick(i)}>{e.artist}</button>
+                            <button className='button-one' onClick={() => this.handleClick(i)}>{e.artist}</button>
                         </div>
                     )
                 }
             )
-            // console.log(mappedProfiles)
             return (
                 <div >
                     {console.log(this.state)}
@@ -57,16 +63,11 @@ export default class Insights extends Component {
                     </div>
                 </div>
             )
-        }
-
-        else {
-
-        }
-        return (
-
+        } else return (
             <div>
                 <Header />
-                <button onClick={() =>this.backButton()}>Back</button>
+                <button onClick={() => this.backButton()}>Back</button>
+                <button onClick={() => this.deleteProfile()}>Delete</button>
                 <Bar
                     data={{
                         labels: ["Openess", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism",],
@@ -75,7 +76,7 @@ export default class Insights extends Component {
                             backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)",],
                             borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)",],
                             borderWidth: 1,
-                            data: [this.state.profiles[this.state.currentProfile].openness,this.state.profiles[this.state.currentProfile].conscientiousness,this.state.profiles[this.state.currentProfile].extraversion,this.state.profiles[this.state.currentProfile].agreeableness,this.state.profiles[this.state.currentProfile].neuroticism]
+                            data: [this.state.profiles[this.state.currentProfile].openness, this.state.profiles[this.state.currentProfile].conscientiousness, this.state.profiles[this.state.currentProfile].extraversion, this.state.profiles[this.state.currentProfile].agreeableness, this.state.profiles[this.state.currentProfile].neuroticism]
                         }
                         ]
                     }}
