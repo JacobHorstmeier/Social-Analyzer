@@ -20,9 +20,10 @@ const {
 } = process.env;
 
 const app = express();
-// app.use(express.static(__dirname + './../build'))
+
 // massive(CONNECTION_STRING).then(db => {
 //     app.set("db", db) would be used to reference our build folder once we do npm build start
+app.use( express.static( `${__dirname}/../build` ) );
 
 massive(CONNECTION_STRING).then( db => {
     app.set('db', db)
