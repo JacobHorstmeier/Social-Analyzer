@@ -69,11 +69,11 @@ passport.deserializeUser((primaryKeyID, done) => {
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/home'}))
+    successRedirect: process.env.REACT_APP_SUCESS_REDIRECT_URL}))
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect('http://localhost:3000')})
+    res.redirect(process.env.REACT_APP_FRONTEND_URL)})
 
 app.get('/auth/user', (req, res) => {
     if(req.user) {
