@@ -4,3 +4,4 @@ CREATE TABLE users (
     picture TEXT,
     auth_id TEXT
 );
+

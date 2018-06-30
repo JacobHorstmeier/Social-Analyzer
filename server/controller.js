@@ -66,6 +66,20 @@ module.exports = {
             })
     },
 
+    // getUserInfo: (req, res, next) => {
+    //     const db = req.app.get('db');
+    //     console.log('getuserinfo hit')
+    //     console.log(req.user)
+
+        
+    //     db.getUserInfo([req.user.id])
+    //     .then( userInfo => res.status(200).send(userInfo))
+    //         .catch((e) => {
+    //             res.status(500).send()
+    //         })
+        
+    // },
+
     saveProfile: (req, res, next) => {
         const db = req.app.get('db');
         console.log('save profile just hit')
@@ -91,11 +105,19 @@ module.exports = {
                 console.log(e)
                 res.status(500).send()
             })
-     }
+     },
 
-    //  editUser: (req, res, next) => {
-    //      const db = req.app.get('db');
-    //  }
+     editUser: (req, res, next) => {
+         const db = req.app.get('db');
+         const {id, bio, email} = req.body
+        console.log('editUserhit')
+
+         db.update_user_info([id,bio,email])
+         .then(userProfile => res.status(200).send(userProfile))
+         .catch((e) => {
+             console.log(e)
+             res.status(500).send()})
+     }
 
 
 }

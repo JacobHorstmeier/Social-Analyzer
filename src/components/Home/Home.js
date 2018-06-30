@@ -3,14 +3,20 @@ import PersonalityInsight from '../PersonalityInsight/PersonalityInsight';
 import Header from '../Header/Header';
 
 
+import './Home.css'
+
+
 export default class Home extends Component {
     render(){
         return (
-            <div>
+            <div className='BDP'>
 
             <Header />
-            <div className='App'>
+            <div className='upper'>
              <PersonalityInsight />
+            
+            <div  />
+            
             </div> 
             </div> 
         )

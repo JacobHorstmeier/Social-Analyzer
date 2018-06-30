@@ -72,7 +72,7 @@ class PersonalityInsight extends Component {
         } else
             return (
                 
-                <div>
+                <div className='upper'>
 
                     <button onClick={() => { this.getProfile() }}>Get Profile</button>
                     <br />
@@ -115,7 +115,7 @@ class PersonalityInsight extends Component {
 
 
 
-
+                       
 
                 </div>
                 
