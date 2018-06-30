@@ -11,12 +11,15 @@
 }
 
 
-.datapixel {
-    position: relative;
-    bottom: 0;
-    height: 300px;
-    width: 100%;
-    margin: 0
-    
-}
+
+    .BDP {
+        background: url('../../BDP.png') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
+        
+      }
+
 
