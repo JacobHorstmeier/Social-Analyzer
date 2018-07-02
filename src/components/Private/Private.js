@@ -88,6 +88,7 @@ class Private extends Component {
 
   render() {
     console.log(this.state)
+    console.log(this.props)
     let { user_name, picture, auth_id, bio, email } = this.state;
     return (
       <div >
