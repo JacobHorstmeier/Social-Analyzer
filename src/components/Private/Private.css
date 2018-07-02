@@ -3,3 +3,8 @@
    text-align: center
     
 }
+
+textarea {
+    background-color: black;
+    color: white;
+}

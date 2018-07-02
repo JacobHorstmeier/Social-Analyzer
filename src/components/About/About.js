@@ -8,6 +8,8 @@ export default class About extends Component {
 
         return (
             <div>
+            <div className='BDP'>
+            <div className='upper'>
                 <Header />
                 <div className='About'>
                 <h3>How are results obtained?</h3>
@@ -15,6 +17,8 @@ export default class About extends Component {
                 <h3>What does the Big 5 Mean?</h3>
                 <p>The Big Five is a research-driven approach in psychology which derives from the notion that the most common personality traits can be captured by five core dimensions: Openness to Experience. Conscientiousness. Extroversion. Agreeableness.</p>
                 </div>
+            </div>
+            </div>
             </div> 
         )
     }

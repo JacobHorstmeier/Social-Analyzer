@@ -76,17 +76,22 @@ class PersonalityInsight extends Component {
 
                     <button onClick={() => { this.getProfile() }}>Get Profile</button>
                     <br />
-                    <input onChange={(e) => this.setState({
+                    <input className='homeinput' onChange={(e) => this.setState({
                         nameInput: e.target.value
                     })} />
                     <br />
-                    
+                    <div className='bar'>
                     <Bar 
                         data={{
                             labels: ["Openess", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism",],
                             datasets: [{
                                 label: ["Big 5 OCEAN Traits"],
-                                backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)",],
+                                // backgroundColor:["rgb(255,132,21, 0.4)","rgb(255,0,135, 0.4)","rgb(127,71,221, 0.4 )","rgb(42,109,255, 0.4)","rgb(0,233,230, 0.4)"],
+
+                                backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)"],
+
+                                // borderColor: ["rgb(255,132,21)","rgb(255,0,135)","rgb(127,71,221)","rgb(42,109,255)","rgb(0,233,230)"],
+
                                 borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)",],
                                 borderWidth: 1,
                                 data: [this.state.profile.openness, this.state.profile.conscientiousness, this.state.profile.extraversion, this.state.profile.agreeableness, this.state.profile.neuroticism]
@@ -108,7 +113,7 @@ class PersonalityInsight extends Component {
                             maintainAspectRatio: true
                         }}
                     />
-
+                    </div>
                     <button onClick={() => this.saveProfile()}>Save</button>
 
 

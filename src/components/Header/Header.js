@@ -32,6 +32,7 @@ export default class Header extends Component {
 
     render (){
         return (
+        <div>
         <div className='header'>
           
           
@@ -46,10 +47,10 @@ export default class Header extends Component {
   </div>
   
  
-  <span style={{fontSize: 30, cursor: 'pointer'}} onClick={() => this.openNav()}>☰</span>
+  <span className='hamburger' style={{fontSize: 30, cursor: 'pointer'}} onClick={() => this.openNav()}>☰</span>
 </div>
-
-
+</div>
+<div className='rainbow'></div> 
 
 
         </div>

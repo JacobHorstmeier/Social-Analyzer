@@ -90,8 +90,9 @@ class Private extends Component {
     console.log(this.state)
     let { user_name, picture, auth_id, bio, email } = this.state;
     return (
-      <div>
-
+      <div >
+      
+      <div className='upper'>
 
         <Header />
         <div className='Private'>
@@ -130,6 +131,8 @@ class Private extends Component {
           }
           <button onClick={() => this.editClick()}>{this.state.editToggle ? 'Save' : 'Edit'}</button>
 
+        </div>
+        
         </div>
       </div>
     );

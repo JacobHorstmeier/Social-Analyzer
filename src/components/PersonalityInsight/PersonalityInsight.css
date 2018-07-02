@@ -1,8 +1,14 @@
-
+input {
+    background-color: black;
+    color: white
+}
 
 button {
-    background-color: rgb(251, 226, 230);
-    border-color: rgb(239, 106, 129)
+    
+    background-color: black;
+    border-color: rgb(239, 106, 129);
+    color: white;
+    
 }
 
 /* input {

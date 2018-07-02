@@ -55,19 +55,24 @@ export default class Insights extends Component {
                 }
             )
             return (
-                <div >
+                <div className='BDP'>
+                <div className='upper' >
                     {console.log(this.state)}
                     <Header />
                     <div className='sub-main'>
                         {mappedProfiles}
                     </div>
+                    </div>
                 </div>
             )
         } else return (
             <div>
+                <div className='BDP'>
+                <div className='upper'>
                 <Header />
                 <button onClick={() => this.backButton()}>Back</button>
                 <button onClick={() => this.deleteProfile()}>Delete</button>
+                <div className='bar'>
                 <Bar
                     data={{
                         labels: ["Openess", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism",],
@@ -95,6 +100,9 @@ export default class Insights extends Component {
                         maintainAspectRatio: true
                     }}
                 />
+                </div>
+                </div>
+                </div>
             </div>
         )
 
